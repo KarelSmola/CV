@@ -1,0 +1,398 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #000;
+  animation: drop 3s;
+}
+
+.section-title {
+  font-weight: bold;
+  font-size: 20px;
+  padding: 5px 50px;
+  margin: 0 0;
+  width: 100%;
+  margin: 8px 0 5px 0;
+  border-radius: 5px;
+  border: 1px solid #000;
+  text-align: center;
+}
+
+.main-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "myself"
+    "education"
+    "skills"
+    "work"
+    "free-time";
+}
+
+.education,
+.work {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 10px 0px;
+  border-radius: 5px;
+}
+
+.work ul li {
+  list-style-type: none;
+  text-align: center;
+  line-height: 21px;
+}
+
+.work-title,
+.education-title {
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.work-content {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.education-content {
+  text-align: center;
+  line-height: 21px;
+}
+
+.work-content:last-child {
+  margin-bottom: 0;
+}
+
+.myself {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 10px 0px;
+  border-radius: 5px;
+}
+
+.skills {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  margin: 10px 10px 0px;
+}
+
+.skills-title {
+  display: flex;
+  justify-content: center;
+}
+
+.skills-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 5px;
+}
+
+.skill-name {
+  margin-right: 10px;
+  width: 55%;
+}
+
+.progress-bar {
+  height: 15px;
+  width: 80%;
+  background-color: white;
+  border: 1px solid #000;
+  border-radius: 3px;
+}
+
+.progress-bar > span {
+  display: block;
+  height: 100%;
+}
+
+.progress {
+  background-color: #000;
+  border-radius: 3px;
+}
+
+.free-time {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10px 10px 0px;
+  border-radius: 5px;
+}
+
+.free-time-title {
+  grid-area: free-time-title;
+  display: flex;
+  justify-content: center;
+}
+
+.free-time-content {
+  grid-area: free-time-content;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px;
+}
+
+.myself-picture img {
+  width: 80%;
+  border-radius: 5px;
+}
+
+.free-time img {
+  width: auto;
+  height: 50px;
+}
+
+.myself-picture {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes drop {
+  0% {
+    opacity: 0%;
+    transform: translateY(-80px);
+  }
+
+  100% {
+    opacity: 80%;
+    transform: translateY(0px);
+  }
+}
+
+.myself-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  font-weight: bold;
+}
+
+.myself-info-bullet {
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+}
+
+.myself-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 5px;
+}
+
+@media (min-width: 690px) and (max-width: 800px) {
+  .main-wrapper {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "myself myself"
+      "education work"
+      "skills work"
+      "free-time work";
+    align-items: start;
+  }
+
+  .myself {
+    grid-area: myself;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "myself-picture section-title";
+  }
+
+  .myself-content {
+    height: 100%;
+    justify-content: space-between;
+  }
+
+  .education {
+    grid-area: education;
+  }
+
+  .work {
+    grid-area: work;
+  }
+
+  .skills {
+    grid-area: skills;
+  }
+
+  .free-time {
+    grid-area: free-time;
+  }
+}
+
+@media (min-width: 800px) and (max-width: 1030px) {
+  .main-wrapper {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "myself work"
+      "education work"
+      "skills work"
+      "skills free-time";
+    align-items: start;
+  }
+
+  .myself {
+    grid-area: myself;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "myself-picture section-title";
+  }
+
+  .myself-picture {
+    flex-direction: row;
+  }
+
+  .myself-picture img {
+    width: 100%;
+    margin-right: 10px;
+  }
+
+  .myself-content {
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 100%;
+  }
+
+  .myself-info {
+    justify-content: flex-start;
+  }
+
+  .education {
+    grid-area: education;
+  }
+
+  .work {
+    grid-area: work;
+  }
+
+  .skills {
+    grid-area: skills;
+  }
+
+  .free-time {
+    grid-area: free-time;
+  }
+}
+
+@media (min-width: 1030px) and (max-width: 1350px) {
+  body {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+
+  .main-wrapper {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "myself myself"
+      "education work"
+      "skills work"
+      "free-time work";
+    align-items: start;
+  }
+
+  .myself {
+    grid-area: myself;
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+
+  .myself-picture img {
+    width: 80%;
+  }
+
+  .myself-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .myself-info {
+    justify-content: space-between;
+  }
+
+  .education {
+    grid-area: education;
+  }
+
+  .work {
+    grid-area: work;
+  }
+
+  .skills {
+    grid-area: skills;
+  }
+
+  .free-time {
+    grid-area: free-time;
+  }
+}
+
+@media (min-width: 1350px) and (max-width: 3600px) {
+  body {
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+
+  .main-wrapper {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "myself myself"
+      "education work"
+      "skills work"
+      "free-time work";
+    align-items: start;
+  }
+
+  .myself {
+    grid-area: myself;
+    margin-left: 30%;
+    margin-right: 30%;
+  }
+
+  .myself-picture img {
+    width: 70%;
+  }
+
+  .myself-content {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .myself-info {
+    justify-content: space-between;
+  }
+
+  .education {
+    grid-area: education;
+  }
+
+  .work {
+    grid-area: work;
+  }
+
+  .skills {
+    grid-area: skills;
+  }
+
+  .free-time {
+    grid-area: free-time;
+  }
+}
